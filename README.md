@@ -44,8 +44,6 @@
 ### Resources
 
 - [bootstrap](https://www.bootstrapcdn.com/)
-
-- [Data Professor](https://github.com/dataprofessor/streamlit_navbar)
 ---
 
 [View App](https://github.com/Designegycreatives/datacleaning-app.py)
