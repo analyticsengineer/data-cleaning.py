@@ -82,7 +82,7 @@ if page == 'Check Missing Value':
 
     try:
         df = df_file.isnull().sum()
-        if st.button('View Missing Value'):
+        if st.button('View Missing Values'):
             st.write(df)
 
     except:
