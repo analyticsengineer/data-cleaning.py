@@ -51,8 +51,7 @@ st.sidebar.image("gif.gif", use_column_width=True)
 
 # Multipage checkbox
 page = st.sidebar.selectbox('Select Page', ['Choose','Check Missing Value', 'Replace With Mean'
-                                            ,'Replace With Average', 'Replace With Mode', 'Replace With Standard Deviation',
-                                            'Replace With Minimum Value', 'Replace With Maximum Value'])
+                                            ,'Replace With Average', 'Replace With Mode', 'Replace With Standard Deviation'])
 
 # Check missing value
 if page == 'Check Missing Value':
@@ -300,110 +299,4 @@ if page == 'Replace With Standard Deviation':
 
     except:
         pass
-
-# Replace with Minimum Value
-if page == 'Replace With Minimum Value':
-
-    df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
-    try:
-        df_file = pd.read_csv(df_file)
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-    except:
-        st.write("Upload A CSV, EXCEL OR PICKLE FILE")
-
-        # Open Excel File
-    try:
-        df_file = pd.read_excel(df_file, engine='openpyxl')
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-    except:
-        pass
-
-        # Read Pickle File
-    try:
-        df_file = pd.read_pickle(df_file)
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-
-
-        df2 = df_file.fillna(df_file.min().round(0))
-        if st.button('Clean Data'):
-            st.write(df2)
-
-        df3 = df2.isnull().sum()
-        if st.button('View Null Value'):
-            st.write(df3)
-
-            df2 = pd.DataFrame(df2)
-            file_name = "clean_data.csv"
-            file_path = f"./{file_name}"
-
-            df2.to_csv(file_path)
-
-            df2 = open(file_path, 'rb')
-            st.download_button(label='Click to download',
-                               data=df2,
-                               file_name=file_name,
-                               key='download_df')
-            df2.close()
-
-
-    except:
-        pass
-
-# Replace with Maximum Value
-if page == 'Replace With Maximum Value':
-
-    df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
-    try:
-        df_file = pd.read_csv(df_file)
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-    except:
-        st.write("Upload A CSV, EXCEL OR PICKLE FILE")
-
-        # Open Excel File
-    try:
-        df_file = pd.read_excel(df_file, engine='openpyxl')
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-    except:
-        pass
-
-        # Read Pickle File
-    try:
-        df_file = pd.read_pickle(df_file)
-        st.markdown("Your Data Record: ")
-        AgGrid(df_file, editable=True)
-    except:
-        pass
-
-    try:
-        df = df_file.fillna(df_file.max().round(0))
-        if st.button('Clean Data'):
-            st.write(df)
-
-        df1 = df.isnull().sum()
-        if st.button('View Null Value'):
-            st.write(df1)
-
-            df = pd.DataFrame(df)
-            file_name = "clean_data.csv"
-            file_path = f"./{file_name}"
-
-            df.to_csv(file_path)
-
-            df = open(file_path, 'rb')
-            st.download_button(label='Click to download',
-                               data=df,
-                               file_name=file_name,
-                               key='download_df')
-            df.close()
-
-
-    except:
-        pass
-
-
 
