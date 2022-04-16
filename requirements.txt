@@ -2,3 +2,4 @@ streamlit==1.2.0
 pandas==1.2.0
 numpy==1.21.2
 streamlit-aggrid
+openpyxl==3.0.9
