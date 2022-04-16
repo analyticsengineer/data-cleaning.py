@@ -7,15 +7,14 @@ st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap
 
 st.markdown("""
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #000000;">
- <a class="navbar-brand" href="https://github.com/Designegycreatives/datacleaning-app.py" target="_blank">Github Page</a>
+ <a class="navbar-brand" href="https://bit.ly/pinkdatahub" target="_blank">Pink Data Hub</a>
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
  </button>
  <div class="collapse navbar-collapse" id="navbarNav">
    <ul class="navbar-nav">
     <li> class="nav-item active">
-     <a class="nav-link disabled" href="#">
- Home <span class="sr-only">(curent)</span></a>
+     <a class="nav-link disabled" href="#">Home<span class="sr-only">(curent)</span></a>
      </li>
      <li class="nav-item">
       <a class="nav-link" href="https://github.com/Designegycreatives/datacleaning-app.py" target="_blank">GitHub</a>
