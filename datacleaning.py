@@ -26,3 +26,7 @@ st.markdown("""
    </div>
 </nav>
 """, unsafe_allow_html=True)
+
+st.markdown('''# **Data Cleaning Web App**
+A simple Data Cleaning Web Application.
+''')
