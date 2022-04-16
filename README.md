@@ -46,4 +46,4 @@
 - [bootstrap](https://www.bootstrapcdn.com/)
 ---
 
-[View App](https://github.com/Designegycreatives/datacleaning-app.py)
+[View App](https://share.streamlit.io/designegycreatives/datacleaning-app.py/main/datacleaning.py)
