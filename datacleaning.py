@@ -13,7 +13,7 @@ st.markdown("""
  </button>
    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li> class="nav-item active">
+        <li class="nav-item active">
            <a class="nav-link disabled" href="#">Home<span class="sr-only">(curent)</span></a>
         </li>
         <li class="nav-item">
