@@ -51,7 +51,7 @@ st.sidebar.image("gif.gif", use_column_width=True)
 
 
 # Multipage checkbox
-page = st.sidebar.selectbox('Select Page', ['Choose','Check Missing Value', 'Check Duplicated Value', 'Replace With Mean'
+page = st.sidebar.selectbox('Select Page', ['Choose','Check Missing Value', 'Remove Duplicate Value', 'Replace With Mean'
                                             ,'Replace With Average', 'Replace With Mode', 'Replace With Standard Deviation'])
 
 # Check missing value
@@ -89,7 +89,7 @@ if page == 'Check Missing Value':
     except:
         pass
 
-if page == 'Check Duplicated Value':
+if page == 'Remove Duplicate Value':
 
     df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
     try:
@@ -128,7 +128,7 @@ if page == 'Check Duplicated Value':
        
             duplicate = duplicate_column(df_file)
             
-            for column in duplicate:
+           # for column in duplicate:
                         if st.button('View Duplicate Column'):
                                     st.write('Column Name: ', column)
     except:
