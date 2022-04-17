@@ -128,14 +128,14 @@ if page == 'Check Duplicated Value':
         if __name__ == "__name__":
                         df_file = df_file
                         df_file = pd.DataFrame(df_file.columns)
-        duplicate = duplicate_column(df_file)
-        st.write("Duplicate Coulmns are :")
+                        duplicate = duplicate_column(df_file)
+                        st.write("Duplicate Coulmns are :")
 
-        for col in duplicate:
-                        st.write('Column Name: ')
+                        for col in duplicate:
+                                    st.write('Column Name: ')
         
         if st.button('View Duplicated Column'):
-            st.write(df)
+            st.write(df_file)
 
     except:
         pass
