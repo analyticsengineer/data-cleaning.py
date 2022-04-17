@@ -127,10 +127,10 @@ if page == 'Check Duplicated Value':
             return list(duplicate)
        
             duplicate = duplicate_column(df_file)
-            st.write("Duplicate Coulmns are :")
-            for col in duplicate:
+            
+            for column in duplicate:
                         if st.button('View Duplicate Column'):
-                                    st.write('Column Name: ', col)
+                                    st.write('Column Name: ', column)
     except:
         pass
     try:
