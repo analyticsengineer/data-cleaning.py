@@ -130,7 +130,7 @@ if page == 'Remove Duplicate Value':
                                                 if vs[i] == vs[j]:
                                                             duplicate.append(ks[i])
                                                             break
-        return duplicate
+            return duplicate
         duplicate = duplicate_columns(df_file)
         if st.button("Check Duplicate Column"):
             st.write(duplicate)
