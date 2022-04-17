@@ -125,6 +125,8 @@ if page == 'Check Duplicated Value':
                                     if col.equals(othercol):
                                                 duplicate.add(df_file.columns.values[y])
             return list(duplicate)
+       if __name__ = "__name__":
+                        df_file = pd.DataFrame(df_file)
         duplicate = duplicate_column(df_file)
         st.write("Duplicate Coulmns are :")
 
