@@ -52,7 +52,7 @@ st.sidebar.image("gif.gif", use_column_width=True)
 
 # Multipage checkbox
 page = st.sidebar.selectbox('Select Page', ['Choose','Check Missing Value', 'Remove Duplicate Value', 'Replace With Mean'
-                                            ,'Replace With Average', 'Replace With Mode', 'Replace With Standard Deviation'])
+                                            ,'Replace With Median', 'Replace With Mode', 'Replace With Standard Deviation'])
 
 # Check missing value
 if page == 'Check Missing Value':
@@ -200,7 +200,7 @@ if page == 'Replace With Mean':
         pass
 
 # Replace with Average
-if page == 'Replace With Average':
+if page == 'Replace With Median':
 
     df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
     try:
