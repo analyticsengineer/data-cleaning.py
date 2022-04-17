@@ -129,8 +129,8 @@ if page == 'Remove Duplicate Value':
             duplicate = duplicate_column(df_file)
             
            # for column in duplicate:
-                        if st.button('View Duplicate Column'):
-                                    st.write('Column Name: ', column)
+            if st.button('View Duplicate Column'):
+                        st.write('Column Name: ', column)
     except:
         pass
     try:
