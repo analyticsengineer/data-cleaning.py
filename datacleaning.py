@@ -116,7 +116,7 @@ if page == 'Check Duplicated Value':
         pass
 
     try:
-        df = df_file.groupby(df_file.columns.tolist('object'), as_index=False).size()
+        df = df_file.duplicated()
         if st.button('View Duplicated Values'):
             st.write(df)
 
