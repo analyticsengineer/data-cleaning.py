@@ -123,7 +123,10 @@ if page == 'Check Duplicated Value':
     except:
         pass
     try:
-        df = df_file.drop_duplicates(keep=False, inplace=True)
+        clean_data = st.text_input("input Duplicate Column")
+        clean_data = str(clean_data)
+                        
+        df = df_file.drop_duplicates(subset=clean_data,keep=False, inplace=True)
         if st.button('Clean Data'):
             st.write(df)
 
