@@ -124,7 +124,7 @@ if page == 'Remove Duplicate Value':
     try:
         clean_data = st.multiselect("Choose Column:",options=df_file.columns)
                         
-        df = df_file.drop_duplicates(subset=clean_data, keep=False)
+        df = df_file.drop_duplicates(subset=clean_data, keep=True)
         if st.button('Clean Data'):
             st.write(df)
 
