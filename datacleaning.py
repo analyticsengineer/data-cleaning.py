@@ -90,7 +90,8 @@ if page == 'Check Missing Value':
         pass
 
 if page == 'Check Duplicated Value':
-            df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
+
+    df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
     try:
         df_file = pd.read_csv(df_file)
         st.markdown("Your Data Record: ")
