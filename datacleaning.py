@@ -123,7 +123,7 @@ if page == 'Check Duplicated Value':
                         for y in range(x + 1, df_file.shape[1]):
                                     othercol = df_file.iloc[:, y]
                                     if col.equals(othercol):
-        duplicate.add(df_file.columns.values[y])
+                                                duplicate.add(df_file.columns.values[y])
             return list(duplicate)
         duplicate = duplicate_column(df_file)
         st.write("Duplicate Coulmns are :")
