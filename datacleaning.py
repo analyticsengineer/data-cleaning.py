@@ -120,7 +120,7 @@ if page == 'Remove Duplicate Value':
         if st.button("Check Duplicate Column"):
                         st.write(df)
                                                             
-        except:
+    except:
         pass
     try:
         clean_data = st.multiselect("Choose Column:",options=df_file.columns)
