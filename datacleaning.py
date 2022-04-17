@@ -130,9 +130,8 @@ if page == 'Check Duplicated Value':
                         df = pd.DataFrame(df_file.columns)
                         duplicate = duplicate_column(df)
                         st.write("Duplicate Coulmns are :")
-
-                        if st.button('View Duplicated Column'):
-                                    for col in duplicate:
+                        for col in duplicate:
+                                    if st.button('View Duplicate Column'):
                                                 st.write('Column Name: ', col)
         
         
