@@ -133,14 +133,10 @@ if page == 'Check Duplicated Value':
                         for col in duplicate:
                                      if st.button('View Duplicate Column'):
                                                             st.write('Column Name: ', col)
-        
-        
-          
-
     except:
         pass
     try:
-        clean_data = st.multiselect("choose:",options=df_file.columns)
+        clean_data = st.multiselect("Choose Column:",options=df_file.columns)
                         
         df = df_file.drop_duplicates(subset=clean_data, keep=False)
         if st.button('Clean Data'):
