@@ -140,8 +140,7 @@ if page == 'Check Duplicated Value':
     except:
         pass
     try:
-        clean_data = st.text_input("Input Duplicate Column")
-        clean_data = str(clean_data)
+        clean_data = st.multiselect("choose:",options=df_file.select_dtypes(include='object').columns)
                         
         df = df_file.drop_duplicates(subset=clean_data, keep=False)
         if st.button('Clean Data'):
