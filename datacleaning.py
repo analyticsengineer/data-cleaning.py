@@ -126,14 +126,11 @@ if page == 'Check Duplicated Value':
         clean_data = st.text_input("Input Duplicate Column")
         clean_data = str(clean_data)
                         
-        df = df_file.drop_duplicates()
+        df = df_file.drop_duplicates(subset=clean_data, keep=False)
         if st.button('Clean Data'):
             st.write(df)
 
-        df1 = df.isnull().sum()
-        if st.button('View Null Value'):
-            st.write(df1)
-
+     
             df = pd.DataFrame(df)
             file_name = "clean_data.csv"
             file_path = f"./{file_name}"
