@@ -116,21 +116,9 @@ if page == 'Remove Duplicate Value':
         pass
 
     try:
-        def duplicate_column(df_file):
-            duplicate = set()
-            for x in range(df_file.shape[1]):
-                        col = df.iloc[:, x]
-                        for y in range(x + 1, df_file.shape[1]):
-                                    othercol = df_file.iloc[:, y]
-                                    if col.equals(othercol):
-                                                duplicate.add(df_file.columns.values[y])
-            return list(duplicate)
-       
-            duplicate = duplicate_column(df_file)
-            
-           # for column in duplicate:
-            if st.button('View Duplicate Column'):
-                        st.write('Column Name: ', column)
+       df = df_file.loc[:,~df_file.columns.duplicated()]
+       if st.button("Check Duplicate Column"):
+                        st.write(df)
     except:
         pass
     try:
