@@ -127,7 +127,7 @@ if page == 'Check Duplicated Value':
             return list(duplicate)
         if __name__ == "__name__":
                         df_file = df_file
-                       df_file = pd.DataFrame(df_file.columns)
+                        df_file = pd.DataFrame(df_file.columns)
         duplicate = duplicate_column(df_file)
         st.write("Duplicate Coulmns are :")
 
