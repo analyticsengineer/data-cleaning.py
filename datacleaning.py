@@ -131,8 +131,7 @@ if page == 'Check Duplicated Value':
                         duplicate = duplicate_column(df)
                         st.write("Duplicate Coulmns are :")
                         for col in duplicate:
-                                    if st.button('View Duplicate Column'):
-                                                st.write('Column Name: ', col)
+                                    st.write('Column Name: ', col)
         
         
           
