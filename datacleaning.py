@@ -133,7 +133,7 @@ if page == 'Check Duplicated Value':
 
                         if st.button('View Duplicated Column'):
                                     for col in duplicate:
-                                    st.write('Column Name: ', col)
+                                                st.write('Column Name: ', col)
         
         
           
