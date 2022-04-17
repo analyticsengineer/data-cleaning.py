@@ -116,22 +116,23 @@ if page == 'Check Duplicated Value':
         pass
 
     try:
-        def duplicate_column(df):
+        def duplicate_column(df_file):
             duplicate = set()
-            for x in range(df.shape[1]):
+            for x in range(df_file.shape[1]):
                         col = df.iloc[:, x]
-                        for y in range(x + 1, df.shape[1]):
-                                    othercol = df.iloc[:, y]
+                        for y in range(x + 1, df_file.shape[1]):
+                                    othercol = df_file.iloc[:, y]
                                     if col.equals(othercol):
                                                 duplicate.add(df_file.columns.values[y])
             return list(duplicate)
         if __name__ == "__name__":
-                        df = df_file
-                        df = pd.DataFrame(df_file.columns)
-                        duplicate = duplicate_column(df)
+                        df_file = df_file
+                        df_file = pd.DataFrame(df_file.columns)
+                        duplicate = duplicate_column(df_file)
                         st.write("Duplicate Coulmns are :")
                         for col in duplicate:
-                                    st.write('Column Name: ', col)
+                                     if st.button('View Duplicate Column'):
+                                                            st.write('Column Name: ', col)
         
         
           
