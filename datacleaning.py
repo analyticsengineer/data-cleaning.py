@@ -386,7 +386,7 @@ if page == 'Splitting Column':
         pass
 
     try:
-       col = st.multiselect("Choose Column:",options=df_file.columns)
+       col = st.selectbox("Choose Column:",options=df_file.columns)
        df_clean = df_file(col).str.split(',', n = 1, expand=True)
        if st.button('View Data'):
             AgGrid(df_file, editable=True)
