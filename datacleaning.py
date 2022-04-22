@@ -387,7 +387,7 @@ if page == 'Splitting Column':
 
     try:
        clean = st.radio("Choose", ('comma', 'hyphen','underscore', 'backslash', 'space')
-                        col = st.selectbox("Choose Column:",options=df_file.columns)
+       col = st.selectbox("Choose Column:",options=df_file.columns)
        
        if clean == 'comma':
             df_clean = df_file(col).str.split(',', expand=True)
