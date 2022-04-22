@@ -387,10 +387,28 @@ if page == 'Splitting Column':
 
     try:
        col = st.selectbox("Choose Column:",options=df_file.columns)
-       df_clean = df_file(col).str.split(',', n = 1, expand=True)
+       clean = st.radio("Choose", (",", "_", "/", " ")
+       if clean == ",":
+                        df_clean = df_file(col).str.split(',', n = 1, expand=True)
        if st.button('View Data'):
             AgGrid(df_file, editable=True)
-
+                        
+       if clean == "_":
+                        df_clean = df_file(col).str.split('_', n = 1, expand=True)
+       if st.button('View Data'):
+            AgGrid(df_file, editable=True)
+                        
+       if clean == "/":
+                        df_clean = df_file(col).str.split('/', n = 1, expand=True)
+       if st.button('View Data'):
+            AgGrid(df_file, editable=True)
+                        
+       if clean == " ":
+                        df_clean = df_file(col).str.split(' ', n = 1, expand=True)
+       if st.button('View Data'):
+            AgGrid(df_file, editable=True)if clean == ",":
+                        df_clean = df_file(col).str.split(',', n = 1, expand=True)
+      
                         
         
             df_clean = pd.DataFrame(df_clean)
