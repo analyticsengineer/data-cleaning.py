@@ -389,7 +389,7 @@ if page == 'Splitting Column':
        col = st.multiselect("Choose Column:",options=df_file.columns)
        df_clean = df_file(col).str.split(',', expand=True)
        if st.button('View Data'):
-            st.write(df_clean)
+            AgGrid(df_file, editable=True)
 
                         
         
