@@ -86,9 +86,9 @@ if page == 'Check Data Type':
         pass
 
     try:
-        df = df_file.isnull().sum()
-        if st.button('View Missing Values'):
-            st.write(df)
+        df_info = df_file.info
+        if st.button('View Data Info'):
+            st.write(df_info)
 
     except:
         pass       
@@ -123,9 +123,10 @@ if page == 'Check Missing Value':
         pass
 
     try:
-        df_info = df_file.info
+        df = df_file.isnull().sum()
         if st.button('View Missing Values'):
-            st.write(df_info)
+            st.write(df)
+
 
     except:
         pass
