@@ -526,26 +526,26 @@ if page == 'Fill Date Time':
         pass
 
     try:
-        df = df_file.reindex(df_file.select_dtypes(include=['datetime']), fill_value=0)
+        df_date = df_file.reindex(df_file.select_dtypes(include=['datetime']), fill_value=0)
         if st.button('Clean Data'):
-            st.write(df)
+            st.write(df_date)
 
-        df1 = df.isnull().sum()
+        df_date = df_date.isnull().sum()
         if st.button('View Null Value'):
-            st.write(df1)
+            st.write(df_date)
 
-            df = pd.DataFrame(df)
+            df_date = pd.DataFrame(df-date)
             file_name = "clean_data.csv"
             file_path = f"./{file_name}"
 
-            df.to_csv(file_path)
+            df_date.to_csv(file_path)
 
-            df = open(file_path, 'rb')
+            df_date = open(file_path, 'rb')
             st.download_button(label='Click to download',
-                               data=df,
+                               data=df_date,
                                file_name=file_name,
                                key='download_df')
-            df.close()
+            df_date.close()
 
 
     except:
