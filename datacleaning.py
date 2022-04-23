@@ -532,9 +532,9 @@ if page == 'Fill Date Time':
         if st.button('Clean Data'):
             st.write(df_date)
 
-        df_date = df_date.isnull().sum()
+        df_date1 = df_date.isnull().sum()
         if st.button('View Null Value'):
-            st.write(df_date)
+            st.write(df_date1)
 
             df_date = pd.DataFrame(df-date)
             file_name = "clean_data.csv"
