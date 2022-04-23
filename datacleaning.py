@@ -390,6 +390,7 @@ if page == 'Splitting Column':
        
        df_clean = df_file[col_clean].str.split(',', expand=True)                    
        if st.button('split by comma'):
+            st.markdown("Your Data Record: ")
             AgGrid(df_clean, editable=True)
        
        df_clean = df_file(col_clean).str.split('-', expand=True)
