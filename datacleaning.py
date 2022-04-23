@@ -526,7 +526,7 @@ if page == 'Fill Date Time':
         pass
 
     try:
-        df = df.reindex(df_file, fill_value=np.nan).interpolate()
+        df = df_file.set_index('timestamp').resample('S').ffill().reset_index()
         if st.button('Clean Data'):
             st.write(df)
 
