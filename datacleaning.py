@@ -473,7 +473,7 @@ if page == 'Splitting Column':
                                key='download_df_clean')
               df_clean5.close()
           
-          df_clean5 = df_file[col_clean].str.split(' ', expand=True)  
+     
             
        df_clean6 = df_file(col_clean).str.split('/ ', expand=True)            
        if st.button('split by forwardslash'):
