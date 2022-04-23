@@ -392,18 +392,18 @@ if page == 'Splitting Column':
        if st.button('split by comma'):
               AgGrid(df_clean1, editable=True)
             
-            df_clean1 = pd.DataFrame(df_clean1)
-            file_name = "clean_data.csv"
-            file_path = f"./{file_name}"
+              df_clean1 = pd.DataFrame(df_clean1)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
 
-            df_clean1.to_csv(file_path)
+              df_clean1.to_csv(file_path)
 
-            df_clean1 = open(file_path, 'rb')
-            st.download_button(label='Click to download',
+              df_clean1 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
                                data=df_clean1,
                                file_name=file_name,
                                key='download_df_clean')
-            df_clean1.close()
+              df_clean1.close()
 
        
        df_clean2 = df_filecol_clean].str.split('-', expand=True)
