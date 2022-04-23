@@ -358,4 +358,80 @@ if page == 'Replace With Standard Deviation':
     except:
         pass
 
+if page == 'Splitting Column':
+
+    df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
+    try:
+        df_file = pd.read_csv(df_file)
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        st.write("Upload A CSV, EXCEL OR PICKLE FILE")
+
+        # Open Excel File
+    try:
+        df_file = pd.read_excel(df_file, engine='openpyxl')
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        pass
+
+        # Read Pickle File
+    try:
+        df_file = pd.read_pickle(df_file)
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        pass
+
+    try:
+       
+       col_clean = st.selectbox("Choose Column:",options=df_file.columns)                 
+       clean = st.selectbox("Choose", ('comma', 'hyphen','underscore', 'backslash', 'space')
+       
+       
+     if clean == 'comma':
+            df_clean = df_file(col_clean).str.split(',', expand=True)
+            if st.button('View Data'):
+                        AgGrid(df_file, editable=True)
+                        
+       if clean == 'hyphen':
+            df_clean = df_file(col_clean).str.split('-', expand=True)
+            if st.button('View Data'):
+            AgGrid(df_file, editable=True)
+                        
+       if clean == 'underscore':
+            df_clean = df_file(col_clean).str.split('_', expand=True)
+            if st.button('View Data'):
+            AgGrid(df_file, editable=True)
+                        
+       if clean == 'backslash':
+            df_clean = df_file(col_clean).str.split('/', expand=True)
+            if st.button('View Data'):
+            AgGrid(df_file, editable=True)
+                        
+       if clean == 'space':
+            df_clean = df_file(col_clean).str.split(' ', expand=True)
+            if st.button('View Data'):
+            AgGrid(df_file, editable=True)if clean == ",":
+                        
+                        
+        
+            df_clean = pd.DataFrame(df_clean)
+            file_name = "clean_data.csv"
+            file_path = f"./{file_name}"
+
+            df_clean.to_csv(file_path)
+
+            df_clean = open(file_path, 'rb')
+            st.download_button(label='Click to download',
+                               data=df_clean,
+                               file_name=file_name,
+                               key='download_df_clean')
+            df_clean.close()
+
+
+    except:
+        pass
+
 
