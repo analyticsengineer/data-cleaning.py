@@ -388,7 +388,7 @@ if page == 'Splitting Column':
        
        col_clean = st.selectbox("Choose Column:",options=df_file.columns)
        
-       df_clean1 = df_file[col_clean].str.split(',', expand=True).append(df_file)
+       df_clean1 = df_file[col_clean].str.split(',', expand=True)
        if st.button('split by comma'):
               st.write(df_clean1)
               
@@ -406,7 +406,7 @@ if page == 'Splitting Column':
               df_clean1.close()
 
        
-       df_clean2 = df_file[col_clean].str.split('-', expand=True).append(df_file)
+       df_clean2 = df_file[col_clean].str.split('-', expand=True)
        if st.button('split by hyphen'):
               st.write(df_clean2)
             
