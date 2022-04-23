@@ -407,7 +407,7 @@ if page == 'Splitting Column':
               df_clean1.close()
 
        
-       df_clean2 = df_file[col_clean].columns.str.split('-', expand=True)
+       df_clean2 = df_file[col_clean].str.split('-', expand=True)
        if st.button('split by hyphen'):
               st.write(df_clean2)
             
@@ -425,7 +425,7 @@ if page == 'Splitting Column':
               df_clean2.close()
 
                        
-       df_clean3 = df_file[col_clean].columns.str.split('_', expand=True)               
+       df_clean3 = df_file[col_clean].str.split('_', expand=True)               
        if st.button('split by underscore'):
               st.write(df_clean3)
               df_clean3 = pd.DataFrame(df_clean3)
@@ -442,7 +442,7 @@ if page == 'Splitting Column':
               df_clean3.close()
 
       
-       df_clean4 = df_file[col_clean].columns.str.split('/', expand=True)
+       df_clean4 = df_file[col_clean].str.split('/', expand=True)
        if st.button('split by backslash'):
               st.write(df_clean4)
               df_clean4 = pd.DataFrame(df_clean4)
@@ -458,7 +458,7 @@ if page == 'Splitting Column':
                                key='download_df_clean')
               df_clean4.close()
        
-       df_clean5 = df_file[col_clean].columns.str.split(' ', expand=True)                
+       df_clean5 = df_file[col_clean].str.split(' ', expand=True)                
        if st.button('split by space'):
               st.write(df_clean5)
               df_clean5 = pd.DataFrame(df_clean5)
@@ -476,7 +476,7 @@ if page == 'Splitting Column':
           
      
             
-       df_clean6 = df_file[col_clean].columns.str.split('/ ', expand=True)            
+       df_clean6 = df_file[col_clean].str.split('/ ', expand=True)            
        if st.button('split by forwardslash'):
               st.write(df_clean6)
               df_clean6 = pd.DataFrame(df_clean6)
