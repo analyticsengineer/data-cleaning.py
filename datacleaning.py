@@ -386,9 +386,9 @@ if page == 'Splitting Column':
 
     try:
        
-       col_clean = st.multiselect("Choose Column:",options=df_file.columns)                 
+       col_clean = st.selectbox("Choose Column:",options=df_file.columns)                 
        
-       df_clean1 = df_file[col_clean].str.split(',', expand=True)                    
+       df_clean1 = df_file[col_clean].str.split(',', expand=True).append(df_file)                  
        if st.button('split by comma'):
               st.write(df_clean1)
             
