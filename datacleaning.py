@@ -391,7 +391,7 @@ if page == 'Splitting Column':
        df_clean1 = df_file[col_clean].str.split(',', expand=True).append(df_file)                  
        if st.button('split by comma'):
               st.write(df_clean1)
-              clean_df(pd.concat([df_file, df_clean1]))
+              clean_df(pd.concat([df_file, df_clean1, axis = 1]))
             
               clean_df = pd.DataFrame(clean_df)
               file_name = "clean_data.csv"
