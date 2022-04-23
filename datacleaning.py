@@ -388,7 +388,8 @@ if page == 'Splitting Column':
        
        col_clean = st.multiselect("Choose Column:",df_file.columns)                 
        
-       df_clean1 = df_file[col_clean].columns.str.split(',', expand=True)                
+       df_clean1 = df_file[col_clean].str.split(',', expand=True)
+       df_clean1 = pd.set_option('display.max_columns',None)
        if st.button('split by comma'):
               st.write(df_clean1)
               
