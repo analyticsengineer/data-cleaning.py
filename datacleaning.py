@@ -389,9 +389,9 @@ if page == 'Splitting Column':
        col_clean = st.multiselect("Choose Column:",df_file.columns)                 
        
        df_clean1 = df_file[col_clean].str.split(',', expand=True)
-       df_clean1 = pd.set_option('display.max_columns',None)
+      
        if st.button('split by comma'):
-              st.write(df_clean1)
+              st.write(pd.set_option('display.max_columns',None))
               
               df_clean1 = pd.DataFrame(df_clean1)
               file_name = "clean_data.csv"
