@@ -388,7 +388,7 @@ if page == 'Splitting Column':
        
        col_clean = st.multiselect("Choose Column:",df_file.columns)                 
        
-       df_clean1 = df_file[col_clean].columns.tolist.str.split(',', expand=True)                
+       df_clean1 = df_file[col_clean].columns.tolist().str.split(',', expand=True)                
        if st.button('split by comma'):
               st.write(df_clean1)
               
