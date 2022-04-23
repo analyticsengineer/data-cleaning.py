@@ -391,9 +391,9 @@ if page == 'Splitting Column':
        
        
      if clean == 'comma':
-            df_clean = df_file(col_clean).str.split(',', expand=True)
-            if st.button('View Data'):
-                        AgGrid(df_file, editable=True)
+                       df_clean = df_file(col_clean).str.split(',', expand=True)
+                       if st.button('View Data'):
+                       AgGrid(df_file, editable=True)
                         
        if clean == 'hyphen':
             df_clean = df_file(col_clean).str.split('-', expand=True)
