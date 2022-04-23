@@ -85,9 +85,8 @@ if page == 'Check Data Type':
     except:
         pass
 
-    try:
-        data_type = st.selectbox("choose", options=df_file.columns)                
-        data_type = data_type.info()
+    try:               
+        data_type = df_file.info(verbose = False)
         if st.button('View Data Info'):
             st.write(data_type)
 
