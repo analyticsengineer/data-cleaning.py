@@ -390,7 +390,7 @@ if page == 'Splitting Column':
        
        df_clean1 = df_file[col_clean].str.split(',', expand=True)                    
        if st.button('split by comma'):
-              AgGrid(df_clean1, editable=True)
+              st.write(df_clean1)
             
               df_clean1 = pd.DataFrame(df_clean1)
               file_name = "clean_data.csv"
@@ -408,48 +408,91 @@ if page == 'Splitting Column':
        
        df_clean2 = df_file[col_clean].str.split('-', expand=True)
        if st.button('split by hyphen'):
-            st.write(df_clean2)
+              st.write(df_clean2)
             
-            df_clean2 = pd.DataFrame(df_clean2)
-            file_name = "clean_data.csv"
-            file_path = f"./{file_name}"
+              df_clean2 = pd.DataFrame(df_clean2)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
 
-            df_clean2.to_csv(file_path)
+              df_clean2.to_csv(file_path)
 
-            df_clean2 = open(file_path, 'rb')
-            st.download_button(label='Click to download',
+              df_clean2 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
                                data=df_clean2,
                                file_name=file_name,
                                key='download_df_clean')
-            df_clean2.close()
+              df_clean2.close()
 
                        
-       df_clean3 = df_file(col_clean).str.split('_', expand=True)               
+       df_clean3 = df_file[col_clean].str.split('_', expand=True)               
        if st.button('split by underscore'):
-            AgGrid(df_clean, editable=True)
-      
-       df_clean = df_file(col_clean).str.split('/', expand=True)
-       if st.button('split by backslash'):
-            AgGrid(df_clean, editable=True)
-                     
-       df_clean = df_file(col_clean).str.split(' ', expand=True)                
-       if st.button('split by space'):
-            AgGrid(df_clean, editable=True)
-                        
-                        
-        
-            df_clean = pd.DataFrame(df_clean)
-            file_name = "clean_data.csv"
-            file_path = f"./{file_name}"
+              st.write(df_clean3)
+              df_clean3 = pd.DataFrame(df_clean3)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
 
-            df_clean.to_csv(file_path)
+              df_clean3.to_csv(file_path)
 
-            df_clean = open(file_path, 'rb')
-            st.download_button(label='Click to download',
-                               data=df_clean,
+              df_clean3 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
+                               data=df_clean3,
                                file_name=file_name,
                                key='download_df_clean')
-            df_clean.close()
+              df_clean3.close()
+
+      
+       df_clean4 = df_file[col_clean].str.split('/', expand=True)
+       if st.button('split by backslash'):
+              st.write(df_clean4)
+              df_clean4 = pd.DataFrame(df_clean4)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
+
+              df_clean4.to_csv(file_path)
+
+              df_clean4 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
+                               data=df_clean4,
+                               file_name=file_name,
+                               key='download_df_clean')
+              df_clean4.close()
+       
+       df_clean5 = df_file[col_clean].str.split(' ', expand=True)                
+       if st.button('split by space'):
+              st.write(df_clean5)
+              df_clean5 = pd.DataFrame(df_clean5)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
+
+              df_clean5.to_csv(file_path)
+
+              df_clean5 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
+                               data=df_clean5,
+                               file_name=file_name,
+                               key='download_df_clean')
+              df_clean5.close()
+          
+          df_clean5 = df_file[col_clean].str.split(' ', expand=True)  
+            
+       df_clean6 = df_file(col_clean).str.split('/ ', expand=True)            
+       if st.button('split by forwardslash'):
+              st.write(df_clean6)
+              df_clean6 = pd.DataFrame(df_clean6)
+              file_name = "clean_data.csv"
+              file_path = f"./{file_name}"
+
+              df_clean6.to_csv(file_path)
+
+              df_clean6 = open(file_path, 'rb')
+              st.download_button(label='Click to download',
+                               data=df_clean6,
+                               file_name=file_name,
+                               key='download_df_clean')
+              df_clean6.close()
+                        
+        
+            
 
 
     except:
