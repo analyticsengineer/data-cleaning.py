@@ -58,7 +58,7 @@ page = st.sidebar.selectbox('Select Page', ['Choose','Check Data Type','Check Mi
 
 
 # Check data type
-# Check missing value
+
 if page == 'Check Data Type':
 
     df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
@@ -87,9 +87,9 @@ if page == 'Check Data Type':
 
     try:
         data_type = st.selectbox("choose", options=df_file.columns)                
-        df_info = data_type.info()
+        data_type = data_type.info()
         if st.button('View Data Info'):
-            st.write(df_info)
+            st.write(data_type)
 
     except:
         pass       
