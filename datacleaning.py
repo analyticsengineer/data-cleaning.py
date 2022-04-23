@@ -406,7 +406,7 @@ if page == 'Splitting Column':
               df_clean1.close()
 
        
-       df_clean2 = df_filecol_clean].str.split('-', expand=True)
+       df_clean2 = df_file[col_clean].str.split('-', expand=True)
        if st.button('split by hyphen'):
             st.write(df_clean2)
             
