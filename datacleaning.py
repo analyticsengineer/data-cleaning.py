@@ -387,30 +387,30 @@ if page == 'Splitting Column':
 
     try:
        clean = st.radio("Choose", ('comma', 'hyphen','underscore', 'backslash', 'space')
-       col = st.selectbox("Choose Column:",options=df_file.columns)
+       col_clean = st.selectbox("Choose Column:",options=df_file.columns)
        
        if clean == 'comma':
-            df_clean = df_file(col).str.split(',', expand=True)
+            df_clean = df_file(col_clean).str.split(',', expand=True)
             if st.button('View Data'):
                         AgGrid(df_file, editable=True)
                         
        if clean == 'hyphen':
-            df_clean = df_file(col).str.split('-', expand=True)
+            df_clean = df_file(col_clean).str.split('-', expand=True)
             if st.button('View Data'):
             AgGrid(df_file, editable=True)
                         
        if clean == 'underscore':
-            df_clean = df_file(col).str.split('_', expand=True)
+            df_clean = df_file(col_clean).str.split('_', expand=True)
             if st.button('View Data'):
             AgGrid(df_file, editable=True)
                         
        if clean == 'backslash':
-            df_clean = df_file(col).str.split('/', expand=True)
+            df_clean = df_file(col_clean).str.split('/', expand=True)
             if st.button('View Data'):
             AgGrid(df_file, editable=True)
                         
        if clean == 'space':
-            df_clean = df_file(col).str.split(' ', expand=True)
+            df_clean = df_file(col_clean).str.split(' ', expand=True)
             if st.button('View Data'):
             AgGrid(df_file, editable=True)if clean == ",":
                         
