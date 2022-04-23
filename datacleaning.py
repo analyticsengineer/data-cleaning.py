@@ -391,20 +391,19 @@ if page == 'Splitting Column':
        df_clean1 = df_file[col_clean].str.split(',', expand=True).append(df_file)                  
        if st.button('split by comma'):
               st.write(df_clean1)
-              clean_df(pd.concat([df_file, df_clean1], axis = 1))
-            
-              clean_df = pd.DataFrame(clean_df)
+              
+              df_clean1 = pd.DataFrame(df_clean1)
               file_name = "clean_data.csv"
               file_path = f"./{file_name}"
 
-              clean_df.to_csv(file_path)
+              df_clean1.to_csv(file_path)
 
-              clean_df = open(file_path, 'rb')
+              df_clean1= open(file_path, 'rb')
               st.download_button(label='Click to download',
-                               data=clean_df,
+                               data=df_clean1,
                                file_name=file_name,
                                key='download_df_clean')
-              clean_df.close()
+              df_clean1.close()
 
        
        df_clean2 = df_file[col_clean].str.split('-', expand=True)
