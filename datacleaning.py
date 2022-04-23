@@ -387,13 +387,15 @@ if page == 'Splitting Column':
     try:
        
        col_clean = st.selectbox("Choose Column:",options=df_file.columns)                 
-       clean = st.selectbox("Choose", ('comma', 'hyphen','underscore', 'backslash', 'space')
+       
+       df_clean = df_file(col_clean).str.split(',', expand=True)                    
+       if st.button('comma'):
+            AgGrid(df_clean, editable=True)
        
        
-     if clean == 'comma':
-                       df_clean = df_file(col_clean).str.split(',', expand=True)
-                       if st.button('View Data'):
-                       AgGrid(df_file, editable=True)
+   
+                       
+                       
                         
        if clean == 'hyphen':
             df_clean = df_file(col_clean).str.split('-', expand=True)
