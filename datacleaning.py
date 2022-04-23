@@ -86,7 +86,7 @@ if page == 'Check Data Type':
         pass
 
     try:
-        df_info = df_file.info
+        df_info = df_file.info()
         if st.button('View Data Info'):
             st.write(df_info)
 
