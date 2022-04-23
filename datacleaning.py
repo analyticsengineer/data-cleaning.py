@@ -527,7 +527,7 @@ if page == 'Fill Date Time':
         pass
 
     try:
-        df_file = df_file.select_dtypes(include=['datetime','timestamp'])                
+                     
         df_date = df_file.fillna(0)
         if st.button('Clean Data'):
             st.write(df_date)
