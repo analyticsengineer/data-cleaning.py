@@ -393,7 +393,7 @@ if page == 'Splitting Column':
               st.write(df_clean1)
        clean_df =  pd.concat(df_file, df_clean1)
             
-               = pd.DataFrame(clean_df)
+              clean_df = pd.DataFrame(clean_df)
               file_name = "clean_data.csv"
               file_path = f"./{file_name}"
 
