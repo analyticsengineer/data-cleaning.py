@@ -527,7 +527,7 @@ if page == 'Fill Date Time':
         pass
 
     try:
-        df_date = df_file.mean(axis=1, numeric_only=False)
+        df_date = df_file[df_file.columns].apply(lambda x: pd.to_datetime(x).mean(),axis=1)
         if st.button('Clean Data'):
             st.write(df_date)
 
