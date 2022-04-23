@@ -386,7 +386,7 @@ if page == 'Splitting Column':
 
     try:
        
-       col_clean = st.multiselect("Choose Column:",df_file.columns)
+       col_clean = st.multiselect("Choose Column:",options=df_file.columns)
         
        col_df = df_file[df_file[col_clean].isin(selected_options)]
        
