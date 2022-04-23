@@ -389,33 +389,24 @@ if page == 'Splitting Column':
        col_clean = st.selectbox("Choose Column:",options=df_file.columns)                 
        
        df_clean = df_file(col_clean).str.split(',', expand=True)                    
-       if st.button('comma'):
+       if st.button('split by comma'):
             AgGrid(df_clean, editable=True)
        
-       
-   
+       df_clean = df_file(col_clean).str.split('-', expand=True)
+       if st.button('split by hyphen'):
+            AgGrid(df_clean, editable=True)
                        
-                       
-                        
-       if clean == 'hyphen':
-            df_clean = df_file(col_clean).str.split('-', expand=True)
-            if st.button('View Data'):
-            AgGrid(df_file, editable=True)
-                        
-       if clean == 'underscore':
-            df_clean = df_file(col_clean).str.split('_', expand=True)
-            if st.button('View Data'):
-            AgGrid(df_file, editable=True)
-                        
-       if clean == 'backslash':
-            df_clean = df_file(col_clean).str.split('/', expand=True)
-            if st.button('View Data'):
-            AgGrid(df_file, editable=True)
-                        
-       if clean == 'space':
-            df_clean = df_file(col_clean).str.split(' ', expand=True)
-            if st.button('View Data'):
-            AgGrid(df_file, editable=True)if clean == ",":
+       df_clean = df_file(col_clean).str.split('_', expand=True)               
+       if st.button('split by underscore'):
+            AgGrid(df_clean, editable=True)
+      
+       df_clean = df_file(col_clean).str.split('/', expand=True)
+       if st.button('split by backslash'):
+            AgGrid(df_clean, editable=True)
+                     
+       df_clean = df_file(col_clean).str.split(' ', expand=True)                
+       if st.button('split by space'):
+            AgGrid(df_clean, editable=True)
                         
                         
         
