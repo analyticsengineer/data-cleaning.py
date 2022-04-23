@@ -526,7 +526,8 @@ if page == 'Fill Date Time':
         pass
 
     try:
-        df_date = df_file.reindex(df_file.select_dtypes(include=['datetime']), fill_value=0)
+        time = df_file.select_dtypes(include=['datetime'])                
+        df_date = df_file.reindex(time, fill_value=0)
         if st.button('Clean Data'):
             st.write(df_date)
 
