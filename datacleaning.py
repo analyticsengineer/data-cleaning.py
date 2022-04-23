@@ -390,13 +390,41 @@ if page == 'Splitting Column':
        
        df_clean1 = df_file[col_clean].str.split(',', expand=True)                    
        if st.button('split by comma'):
-            st.write(df_clean1)
+              AgGrid(df_clean1, editable=True)
+            
+            df_clean1 = pd.DataFrame(df_clean1)
+            file_name = "clean_data.csv"
+            file_path = f"./{file_name}"
+
+            df_clean1.to_csv(file_path)
+
+            df_clean1 = open(file_path, 'rb')
+            st.download_button(label='Click to download',
+                               data=df_clean1,
+                               file_name=file_name,
+                               key='download_df_clean')
+            df_clean1.close()
+
        
-       df_clean = df_file(col_clean).str.split('-', expand=True)
+       df_clean2 = df_filecol_clean].str.split('-', expand=True)
        if st.button('split by hyphen'):
-            AgGrid(df_clean, editable=True)
+            st.write(df_clean2)
+            
+            df_clean2 = pd.DataFrame(df_clean2)
+            file_name = "clean_data.csv"
+            file_path = f"./{file_name}"
+
+            df_clean2.to_csv(file_path)
+
+            df_clean2 = open(file_path, 'rb')
+            st.download_button(label='Click to download',
+                               data=df_clean2,
+                               file_name=file_name,
+                               key='download_df_clean')
+            df_clean2.close()
+
                        
-       df_clean = df_file(col_clean).str.split('_', expand=True)               
+       df_clean3 = df_file(col_clean).str.split('_', expand=True)               
        if st.button('split by underscore'):
             AgGrid(df_clean, editable=True)
       
