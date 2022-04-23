@@ -53,11 +53,13 @@ st.sidebar.image("gif.gif", use_column_width=True)
 
 
 # Multipage checkbox
-page = st.sidebar.selectbox('Select Page', ['Choose','Check Missing Value', 'Remove Duplicate Value', 'Replace With Mean'
+page = st.sidebar.selectbox('Select Page', ['Choose','Check Data Type','Check Missing Value', 'Remove Duplicate Value', 'Replace With Mean'
                                             ,'Replace With Median', 'Replace With Mode', 'Replace With Standard Deviation', 'Splitting Column', 'Fill Date Time'])
 
+
+# Check data type
 # Check missing value
-if page == 'Check Missing Value':
+if page == 'Check Data Type':
 
     df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
     try:
@@ -87,6 +89,43 @@ if page == 'Check Missing Value':
         df = df_file.isnull().sum()
         if st.button('View Missing Values'):
             st.write(df)
+
+    except:
+        pass       
+
+
+
+# Check missing value
+if page == 'Check Missing Value':
+
+    df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
+    try:
+        df_file = pd.read_csv(df_file)
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        st.write("Upload A CSV, EXCEL OR PICKLE FILE")
+
+        # Open Excel File
+    try:
+        df_file = pd.read_excel(df_file, engine='openpyxl')
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        pass
+
+        # Read Pickle File
+    try:
+        df_file = pd.read_pickle(df_file)
+        st.markdown("Your Data Record: ")
+        AgGrid(df_file, editable=True)
+    except:
+        pass
+
+    try:
+        df_info = df_file.info
+        if st.button('View Missing Values'):
+            st.write(df_info)
 
     except:
         pass
