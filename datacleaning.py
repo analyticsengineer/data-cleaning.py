@@ -386,7 +386,7 @@ if page == 'Splitting Column':
 
     try:
        
-       col_clean = st.multiselect("Choose Column:",[options=df_file.columns])                 
+       col_clean = st.multiselect("Choose Column:",[df_file.columns])                 
        
        df_clean1 = df_file[col_clean].str.split(',', expand=True)                
        if st.button('split by comma'):
