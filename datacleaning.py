@@ -388,10 +388,9 @@ if page == 'Splitting Column':
        
        col_clean = st.selectbox("Choose Column:",options=df_file.columns)                 
        
-       df_clean = df_file[col_clean].str.split(',', expand=True)                    
+       df_clean1 = df_file[col_clean].str.split(',', expand=True)                    
        if st.button('split by comma'):
-            st.markdown("Your Data Record: ")
-            AgGrid(df_clean, editable=True)
+            st.write(df_clean1)
        
        df_clean = df_file(col_clean).str.split('-', expand=True)
        if st.button('split by hyphen'):
