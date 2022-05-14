@@ -3,3 +3,4 @@ pandas==1.2.0
 numpy==1.21.2
 streamlit-aggrid
 openpyxl==3.0.9
+pip==22.1.0
