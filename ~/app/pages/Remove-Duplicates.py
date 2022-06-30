@@ -39,7 +39,7 @@ except:
 try:
   df = df_file.isnull().sum()
   if st.button('View Missing Values'):
-  st.write(df)
+     st.write(df)
 
 except:
   pass
@@ -47,7 +47,7 @@ except:
 try:
   df = df_file[df_file.duplicated()]
   if st.button("Check Duplicate Column"):
-  st.write(df)
+     st.write(df)
 except:
   pass
 try:
@@ -55,21 +55,21 @@ try:
                         
   df = df_file.drop_duplicates(subset=clean_data, keep='first', inplace=False)
   if st.button('Clean Data'):
-  st.write(df)
+     st.write(df)
 
      
-  df = pd.DataFrame(df)
-  file_name = "clean_data.csv"
-  file_path = f"./{file_name}"
+     df = pd.DataFrame(df)
+     file_name = "clean_data.csv"
+     file_path = f"./{file_name}"
 
-  df.to_csv(file_path)
+     df.to_csv(file_path)
 
-  df = open(file_path, 'rb')
-  st.download_button(label='Click to download',
+     df = open(file_path, 'rb')
+     st.download_button(label='Click to download',
                       data=df,
                       file_name=file_name,
                       key='download_df')
-  df.close()
+     df.close()
 
 except:
   pass
