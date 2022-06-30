@@ -41,7 +41,7 @@ except:
 try:
   df = df_file.isnull().sum()
   if st.button('View Missing Values'):
-  st.write(df)
+     st.write(df)
 
 except:
   pass
@@ -51,7 +51,7 @@ try:
        
   df_clean1 = df_file[col_clean].str.split(',', expand=True)
   if st.button('split by comma'):
-      st.write(df_clean1)
+     st.write(df_clean1)
               
       df_clean1 = pd.DataFrame(df_clean1)
       file_name = "clean_data.csv"
@@ -69,7 +69,7 @@ try:
        
   df_clean2 = df_file[col_clean].str.split('-', expand=True)
   if st.button('split by hyphen'):
-      st.write(df_clean2)
+     st.write(df_clean2)
             
       df_clean2 = pd.DataFrame(df_clean2)
       file_name = "clean_data.csv"
