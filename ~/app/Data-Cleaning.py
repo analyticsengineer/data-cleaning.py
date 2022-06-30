@@ -39,7 +39,8 @@ col1, col2 = st.columns(2)
 col1.markdown('''# **Data Cleaning Web App**
 A simple Data Cleaning Web Application.
 ''')
-col2.write("This Web Application let's you clean your data like Removing Duplicates, Filling Missing Values etc")
+col1.write("This Web Application let's you clean your data like Removing Duplicates, Filling Missing Values etc")
+col2.image(image)
 
 image = Image.open('image.png')
 
