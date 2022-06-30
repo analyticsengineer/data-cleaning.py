@@ -9,8 +9,8 @@ col1, col2 = st.columns(2)
 
 image = Image.open('gif.gif')
 
-col1.header("Check For Missing Values In Your Data")
-col1.write("Misisng Values Creates Outliers In Your Data")
+col1.header("Replace Values In Your Data With Mean")
+col1.write("These Reduces The Number Of Outliers In Your Data")
 col2.image(image)
 
 
