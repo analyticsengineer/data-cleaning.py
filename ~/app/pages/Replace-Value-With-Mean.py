@@ -65,3 +65,5 @@ try:
                       file_name=file_name,
                       key='download_df')
   df.close()
+except:
+  pass
