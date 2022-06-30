@@ -39,7 +39,7 @@ except:
 try:
   df = df_file.isnull().sum()
   if st.button('View Missing Values'):
-  st.write(df)
+     st.write(df)
 
 except:
   pass
