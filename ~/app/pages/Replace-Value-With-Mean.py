@@ -39,7 +39,7 @@ except:
 try:
   df = df_file.isnull().sum()
   if st.button('View Missing Values'):
-  st.write(df)
+     st.write(df)
 
 except:
   pass
@@ -47,11 +47,11 @@ except:
 try:
   df = df_file.fillna(df_file.median().round(0))
   if st.button('Clean Data'):
-  st.write(df)
+     st.write(df)
 
   df1 = df.isnull().sum()
   if st.button('View Null Value'):
-  st.write(df1)
+     st.write(df1)
 
   df = pd.DataFrame(df)
   file_name = "clean_data.csv"
