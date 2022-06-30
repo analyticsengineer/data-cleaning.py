@@ -3,7 +3,7 @@ import pandas as pd
 from openpyxl import load_workbook
 import datetime
 import time
-from PIL import image 
+from PIL import Image 
 
 
 # Adding Nav Bar
@@ -35,6 +35,7 @@ st.markdown("""
 
 # App Header
 col1, col2 = st.columns(2)
+image = Image.open('image.png')
 
 col1.markdown('''# **Data Cleaning Web App**
 A simple Data Cleaning Web Application.
@@ -42,7 +43,7 @@ A simple Data Cleaning Web Application.
 col1.write("This Web Application let's you clean your data like Removing Duplicates, Filling Missing Values etc")
 col2.image(image)
 
-image = Image.open('image.png')
+
 
 
 
