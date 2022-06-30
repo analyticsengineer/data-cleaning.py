@@ -8,8 +8,8 @@ from PIL import Image
 col1, col2 = st.columns(2)
 image = Image.open('gif.gif')
 
-col1.header("Check For Missing Values In Your Data")
-col1.write("Misisng Values Creates Outliers In Your Data")
+col1.header("Replace Date Time In Your Data")
+col1.write("Misisng Date Time Creates Outliers In Your Data")
 col2.image(image)
 
 
