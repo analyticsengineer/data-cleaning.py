@@ -3,12 +3,13 @@ import pandas as pd
 from openpyxl import load_workbook
 import datetime
 import time
-from PIL import image 
+from PIL import Image 
 
 col1, col2 = st.columns(2)
 
 col1.header("Check For Missing Values In Your Data")
-col2.write("Misisng Values Creates Outliers In Your Data")
+col1.write("Misisng Values Creates Outliers In Your Data")
+col2.image(image)
 
 image = Image.open('gif.gif')
 
