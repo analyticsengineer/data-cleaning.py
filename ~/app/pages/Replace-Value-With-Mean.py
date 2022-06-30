@@ -3,14 +3,16 @@ import pandas as pd
 from openpyxl import load_workbook
 import datetime
 import time
-from PIL import image 
+from PIL import Image 
 
 col1, col2 = st.columns(2)
 
-col1.header("Check For Missing Values In Your Data")
-col2.write("Misisng Values Creates Outliers In Your Data")
-
 image = Image.open('gif.gif')
+
+col1.header("Check For Missing Values In Your Data")
+col1.write("Misisng Values Creates Outliers In Your Data")
+col2.image(image)
+
 
 df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
 try:
