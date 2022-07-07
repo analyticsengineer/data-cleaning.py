@@ -41,7 +41,7 @@ except:
 try:
    col_del = st.multiselect("Choose Column:",options=df_file.columns)
    #coldel = df_file.drop(subset=col_del, axis=1, inplace=True)
-   coldel = del df_file(col_del)
+   coldel = df_file.pop(col_del)
    if st.button('Clean Data'):
      st.write(coldel)
    
