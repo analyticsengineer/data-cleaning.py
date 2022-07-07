@@ -40,19 +40,20 @@ except:
 
 try:
    col_del = st.multiselect("Choose Column:",options=df_file.columns)
-   coldel = df_file.drop(col_del, axis=1, inplace=True)
-   st.dataframe(coldel)
+   coldel = df_file.drop(subset=col_del, axis=1, inplace=True)
+   if st.button('Clean Data'):
+     st.write(coldel)
    
-   coldel = pd.DataFrame(coldel)
-   file_name = "clean_data.csv"
-   file_path = f"./{file_name}"
+     coldel = pd.DataFrame(coldel)
+     file_name = "clean_data.csv"
+     file_path = f"./{file_name}"
 
-   df_clean1.to_csv(file_path)
+     df_clean1.to_csv(file_path)
 
-   df_clean1= open(file_path, 'rb')
-   st.download_button(label='Click to download',
+     df_clean1= open(file_path, 'rb')
+     st.download_button(label='Click to download',
                       data=coldel,
                       file_name=file_name,
                       key='download_df_clean')
-   coldel.close()
+     coldel.close()
   
