@@ -56,3 +56,5 @@ try:
                       file_name=file_name,
                       key='download_df_clean')
      coldel.close()
+except:
+  pass
