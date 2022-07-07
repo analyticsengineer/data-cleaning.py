@@ -44,17 +44,17 @@ try:
    if st.button('New Data'):
      st.write(df_file)
    
-     coldel = pd.DataFrame(coldel)
+     coldel = pd.DataFrame(df_file)
      file_name = "clean_data.csv"
      file_path = f"./{file_name}"
 
-     df_clean1.to_csv(file_path)
+     df_file.to_csv(file_path)
 
-     df_clean1= open(file_path, 'rb')
+     df_file= open(file_path, 'rb')
      st.download_button(label='Click to download',
-                      data=coldel,
+                      data=df_file,
                       file_name=file_name,
                       key='download_df_clean')
-     coldel.close()
+     df_file.close()
 except:
   pass
