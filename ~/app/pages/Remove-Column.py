@@ -40,8 +40,7 @@ except:
 
 try:
    col_del = st.multiselect("Choose Column:",options=df_file.columns)
-   #coldel = df_file.drop(subset=col_del, axis=1, inplace=True)
-   coldel = df_file.pop(col_del)
+   coldel = df_file.drop(columns=col_del, axis=1, inplace=True)
    if st.button('New Data'):
      st.write(coldel)
    
