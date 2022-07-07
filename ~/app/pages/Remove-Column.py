@@ -42,7 +42,7 @@ try:
    col_del = st.multiselect("Choose Column:",options=df_file.columns)
    #coldel = df_file.drop(subset=col_del, axis=1, inplace=True)
    coldel = df_file.pop(col_del)
-   if st.button('Clean Data'):
+   if st.button('New Data'):
      st.write(coldel)
    
      coldel = pd.DataFrame(coldel)
