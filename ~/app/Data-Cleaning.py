@@ -40,10 +40,16 @@ image = Image.open('image.png')
 col1.markdown('''# **Data Cleaning Web App**
 A simple Data Cleaning Web Application.
 ''')
-col1.write("This Web Application let's you clean your data like Removing Duplicates, Filling Missing Values etc")
+col1.write("This Web Application is best for data wrangling")
 col2.image(image)
 
-
+col1.write("How to use this web app")
+col1.write("1. Check for the total number of missing value in your data")
+col1.write("2. Check the total number of rows in your data set")
+col1.write("3. Check for duplicate data in your data and remove them")
+col1.write("4. Remove unecessary columns of your choice")
+col1.write("5. Replace Datetime format")
+col1.write("6. Split columns of your choice")
 
 
 
