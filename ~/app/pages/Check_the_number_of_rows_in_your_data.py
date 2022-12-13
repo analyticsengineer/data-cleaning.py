@@ -41,6 +41,9 @@ except:
 try:
   df = len(df_file)
   st.write("The number of rows in your data is {} ".format(df))
+  st.write("If Number of rows is < 10,000 replace null values with Mean")
+  st.write("If Number of rows is > 10,000 replace null values with Median")
+  
 
 except:
   pass
