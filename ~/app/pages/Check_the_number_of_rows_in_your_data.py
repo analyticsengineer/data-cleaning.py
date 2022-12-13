@@ -40,7 +40,7 @@ except:
 
 try:
   df = len(df_file)
-  st.write("The number of rows in your data is ".format(df))
+  st.write("The number of rows in your data is {} ".format(df))
 
 except:
   pass
