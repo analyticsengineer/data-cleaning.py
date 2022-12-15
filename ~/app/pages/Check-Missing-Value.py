@@ -18,8 +18,8 @@ df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
 try:
   df_file = pd.read_csv(df_file)
   st.markdown("Your Data Record: ")
-  data = st.dataframe(df_file)
-  data.head(100)
+  st.dataframe(df_file)
+  
 except:
   st.write("Upload A CSV, EXCEL OR PICKLE FILE")
 
