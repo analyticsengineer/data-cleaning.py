@@ -47,26 +47,27 @@ except:
   pass
 
 try:
-  df_columns = list(df_file.columns)
-  df_file[df_columns].apply(lambda x: x.fillna(x.mode, inplace=True))
-  if st.button('Clean Data'):
+  for column in df.columns:
+    df[column].fillna(df[column].mode()[0], inplace=True)
+    
+    if st.button('Clean Data'):
      st.write(df)
 
-  df1 = df.isnull().sum()
-  if st.button('View Null Value'):
-   st.write(df1)
+    df1 = df.isnull().sum()
+    if st.button('View Null Value'):
+     st.write(df1)
 
-  df = pd.DataFrame(df)
-  file_name = "clean_data.csv"
-  file_path = f"./{file_name}"
+    df = pd.DataFrame(df)
+    file_name = "clean_data.csv"
+    file_path = f"./{file_name}"
 
-  df.to_csv(file_path)
+    df.to_csv(file_path)
 
-  df = open(file_path, 'rb')
-  st.download_button(label='Click to download',
-                      data=df,
-                      file_name=file_name,
-                      key='download_df')
-  df.close()
+    df = open(file_path, 'rb')
+    st.download_button(label='Click to download',
+                        data=df,
+                        file_name=file_name,
+                        key='download_df')
+    df.close()
 except:
   pass
