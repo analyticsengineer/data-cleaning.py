@@ -47,8 +47,8 @@ except:
   pass
 
 try:
-  for column in df.columns:
-    df[column].fillna(df[column].mode()[0], inplace=True)
+  for column in df_file.columns:
+    df_file[column].fillna(df_file[column].mode()[0], inplace=True)
     if st.button('Clean Data'):
        st.write(df)
 
