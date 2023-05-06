@@ -46,17 +46,8 @@ try:
   if st.button('Check Data Normality'):
     mean = df_file.mean()
     std = df_file.std()
-    hist_graph = go.Histogram(x=df_file.values.flatten(), name='Data')
-    x = np.linspace(df.min().min(), df.max().max(), 100)
-    y = norm.pdf(x, mean, std)
-    line_trace = go.Scatter(x=x, y=y, mode='lines', name='Normal Distribution')
-    layout = go.Layout(
-        title='Normal Distribution of Dataset',
-        xaxis=dict(title='Values'),
-        yaxis=dict(title='Probability Density'),
-    )
-    figure = go.Figure(data=[hist_trace, line_trace], layout=layout)
-    st.plotly_chart(figure, theme="streamlit", use_container_width=True)
+    st.write(mean)
+    st.write(std)
 
 except:
   pass
