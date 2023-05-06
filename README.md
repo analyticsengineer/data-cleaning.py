@@ -1,4 +1,4 @@
-# Data Cleaning Web App
+# Data Cleaning Made Easy
 
 ![Github Readme Header](https://user-images.githubusercontent.com/83256563/163657309-387eee34-f2fa-490b-bd85-941129ad205e.png)
 
@@ -8,23 +8,18 @@
 ---
 #### This Web app is built on Streamlit with Python Programming to Automate Data Cleaning Process.
 
-#### The purpose of this web app is to make data cleaning process easy for data analysis.
+#### Data cleaning is a time-consuming and tedious task, but it's essential for making sure your data is accurate and usable. Our data cleaning web application makes it easy to clean your data quickly and efficiently.
 
-#### The Data Table is editable with the integration of [Agrid](https://www.ag-grid.com/)
+#### With our application, you can:
 
-#### With this web app you can do the following
-
-- Check Columns With Null Value
-
-- Replace Null Value With Mean Value
-
-- Replace Null Value With Average
-
-- Replace Null Value With Mode
-
-- Replace Null Value With Standard Deviation
+- Identify and remove duplicate records
+- Fill in missing values
+- Normalize data formats
+- Standardize data values
+- And much more!
 ---
 
+#### Our application is easy to use and can be customized to meet your specific needs. Try it today and see how it can help you clean your data quickly and easily.
 
 #### How to use the web app
 
