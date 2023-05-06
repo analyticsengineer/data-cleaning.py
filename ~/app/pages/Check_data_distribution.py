@@ -45,19 +45,8 @@ except:
 # Calculate mean and standard deviation of the dataset
 try:
   if st.button('Check Data Normality'):
-    mean = df_file.mean()
-    std = df_file.std()
-    hist_graph = go.Histogram(x=df_file.values.flatten(), name='Data')
-    x = np.linspace(df_file.min().min(), df_file.max().max(), 100)
-    y = norm.pdf(x, mean, std)
-    line_graph = go.Scatter(x=x, y=y, mode='lines', name='Normal Distribution')
-    layout = go.Layout(
-      title='Normal Distribution of Dataset',
-      xaxis=dict(title='Values'),
-      yaxis=dict(title='Probability Density'),
-    )
-    figure = go.Figure(data=[hist_graph, line_graph], layout=layout)
-    st.plotly_chart(figure,theme="streamlit",  use_container_width=True)
+    data = df_file.min()
+    st.write(data)
 
 
 except:
