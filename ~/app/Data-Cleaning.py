@@ -43,13 +43,10 @@ A simple Data Cleaning Web Application.
 col1.write("This Web Application is best for data wrangling")
 col2.image(image)
 
-col1.write("How to use this web app")
-col1.write("1. Check for the total number of missing value in your data")
-col1.write("2. Check the total number of rows in your data set")
-col1.write("3. Check for duplicate data in your data and remove them")
-col1.write("4. Remove unecessary columns of your choice")
-col1.write("5. Replace Datetime format")
-col1.write("6. Split columns of your choice")
+col1.write("Data cleaning is a time-consuming and tedious task. But it's essential to make sure your data is accurate and consistent before you can analyze it or share it with others.")
+col1.write("Our data cleaning web application makes it easy to clean your data quickly and easily. Simply upload your data, select the cleaning tasks you want to perform, and click clean button, Our application will do the rest, automatically identifying and correcting errors in your data.")
+
+
 
 
 
