@@ -47,8 +47,8 @@ try:
   if st.button('Check Data Normality'):
     mean = df_file.mean()
     std = df_file.std()
-    hist_graph = go.Histogram(x=df.values.flatten(), name='Data')
-    x = np.linspace(df.min().min(), df.max().max(), 100)
+    hist_graph = go.Histogram(x=df_file.values.flatten(), name='Data')
+    x = np.linspace(df_file.min().min(), df_file.max().max(), 100)
     y = norm.pdf(x, mean, std)
     line_graph = go.Scatter(x=x, y=y, mode='lines', name='Normal Distribution')
     layout = go.Layout(
