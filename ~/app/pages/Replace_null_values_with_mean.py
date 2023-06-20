@@ -39,28 +39,28 @@ except:
   pass
 
 try:
-   col_mean = st.multiselect("Choose Column:",options=df_file.columns)
-   colmean = df_file.fillna(col_mean.mean().round(0))
+   col_mean = st.multiselect("Choose Column:", options=df_file.columns)
    if st.button('Clean Data'):
-     st.write(colmean)
+    col_mean_fillna = df_file[col_mean].fillna(df_file[col_mean].mean().round(0))
+    st.write(col_mean_fillna)
    
 
-   df1 = df.isnull().sum()
-   if st.button('View Null Value'):
-     st.write(df1)
+    df1 = df.isnull().sum()
+    if st.button('View Null Value'):
+       st.write(df1)
 
-     df = pd.DataFrame(df)
-     file_name = "clean_data.csv"
-     file_path = f"./{file_name}"
+    df = pd.DataFrame(df)
+    file_name = "clean_data.csv"
+    file_path = f"./{file_name}"
 
-     df.to_csv(file_path)
+    df.to_csv(file_path)
 
-     df = open(file_path, 'rb')
-     st.download_button(label='Click to download',
+    df = open(file_path, 'rb')
+    st.download_button(label='Click to download',
                       data=df,
                       file_name=file_name,
                       key='download_df')
-     df.close()
+    df.close()
 except:
   pass
 
