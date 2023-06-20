@@ -47,6 +47,14 @@ except:
   pass
 
 try:
+  df = df_file.isnull().sum()
+  if st.button('View Missing Values'):
+     st.write(df)
+
+except:
+  pass
+
+try:
    if st.button('Clean Data'):
     df_file.fillna(df_file.median().round(0), inplace=True)
     st.write(df_file)
