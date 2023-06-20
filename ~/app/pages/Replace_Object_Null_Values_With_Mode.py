@@ -53,7 +53,7 @@ try:
     st.write(df_file)
 
     df = df_file.isnull().sum()
-  if st.button('View Missing Values'):
+    if st.button('View Missing Values'):
      st.write(df)
 
     file_name = "clean_data.csv"
