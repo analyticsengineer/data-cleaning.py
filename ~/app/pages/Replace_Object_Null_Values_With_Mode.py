@@ -47,16 +47,16 @@ except:
   pass
 
 try:
-   col_mode = st.multiselect("Choose Column:",options=df_file.columns)
-   for column in col_mode:
-     col_mode.fillna(col_mode.mode()[0], inplace=True)
-     if st.button('Clean Data'):
-       st.write(df_file)
+   col_mode = st.multiselect("Choose Column:", options=df_file.columns)
+   if st.button('Clean Data'):
+    for column in col_mode:
+        df_file[column].fillna(df_file[column].mode()[0], inplace=True)
+        st.write(df_file)
        
-       #for column in df.columns:
-       #df[column].fillna(df[column].mode()[0], inplace=True)
+        #for column in df.columns:
+        #df[column].fillna(df[column].mode()[0], inplace=True)
   
-       if st.button('Clean Data'):
+        if st.button('Clean Data'):
          st.write(df)
 
          df1 = df.isnull().sum()
