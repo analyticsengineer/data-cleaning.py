@@ -52,8 +52,8 @@ try:
     col_median_fillna = df_file[col_median].fillna(df_file[col_median].median().round(0))
     st.write(col_median_fillna)
 
-   df1 = df.isnull().sum()
-   if st.button('View Null Value'):
+    df1 = df.isnull().sum()
+    if st.button('View Null Value'):
      st.write(df1)
 
      df = pd.DataFrame(df)
