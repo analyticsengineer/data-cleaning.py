@@ -52,9 +52,6 @@ try:
         df_file[column].fillna(df_file[column].mode().iloc[0], inplace=True)
     st.write(df_file)
 
-   if st.button('View Null Values'):
-    df1 = df_file.isnull().sum()
-    st.write(df1)
 
     file_name = "clean_data.csv"
     file_path = f"./{file_name}"
