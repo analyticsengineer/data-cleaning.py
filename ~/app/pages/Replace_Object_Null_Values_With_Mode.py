@@ -52,7 +52,7 @@ try:
         df_file[column].fillna(df_file[column].mode().iloc[0], inplace=True)
     st.write(df_file)
 
-  df = df_file.isnull().sum()
+    df = df_file.isnull().sum()
   if st.button('View Missing Values'):
      st.write(df)
 
