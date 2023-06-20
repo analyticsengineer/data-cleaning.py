@@ -48,12 +48,15 @@ except:
 
 try:
    col_mode = st.multiselect("Choose Column:",options=df_file.columns)
-   colmode = df_file.drop(columns=col_mode, axis=1, inplace=True)
+   for column in col_mode:
+   col_mode.fillna(col_mode.mode()[0], inplace=True)
    if st.button('Clean Data'):
      st.write(df_file)
+
+    
    
-   for column in df.columns:
-    df[column].fillna(df[column].mode()[0], inplace=True)
+    #for column in df.columns:
+    #df[column].fillna(df[column].mode()[0], inplace=True)
     if st.button('Clean Data'):
      st.write(df)
 
