@@ -48,13 +48,9 @@ except:
 
 try:
    col_mean = st.multiselect("Choose Column:",options=df_file.columns)
-   colmean = df_file.drop(columns=col_mean, axis=1, inplace=True)
+   colmean = df_file.fillna(df_file.median().round(0))
    if st.button('Clean Data'):
-     st.write(df_file)
-   
-   df = df_file.fillna(df_file.median().round(0))
-   if st.button('Clean Data'):
-     st.write(df)
+     st.write(colmean)
 
    df1 = df.isnull().sum()
    if st.button('View Null Value'):
