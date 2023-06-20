@@ -40,7 +40,7 @@ except:
 
 try:
    col_mean = st.multiselect("Choose Column:",options=df_file.columns)
-   colmean = df_file.fillna(df_file.mean().round(0))
+   colmean = df_file.fillna(col_mean.mean().round(0))
    if st.button('Clean Data'):
      st.write(colmean)
    
