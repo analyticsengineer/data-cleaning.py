@@ -39,33 +39,31 @@ except:
   pass
 
 try:
-  df = df_file.isnull().sum()
-  if st.button('View Missing Values'):
+   col_mean = st.multiselect("Choose Column:",options=df_file.columns)
+   colmean = df_file.drop(columns=col_mean, axis=1, inplace=True)
+   if st.button('Clean Data'):
+     st.write(df_file)
+   
+   df = df_file.fillna(df_file.mean().round(0))
+   if st.button('Clean Data'):
      st.write(df)
 
-except:
-  pass
-
-try:
-  df = df_file.fillna(df_file.mean().round(0))
-  if st.button('Clean Data'):
-     st.write(df)
-
-  df1 = df.isnull().sum()
-  if st.button('View Null Value'):
+   df1 = df.isnull().sum()
+   if st.button('View Null Value'):
      st.write(df1)
 
-  df = pd.DataFrame(df)
-  file_name = "clean_data.csv"
-  file_path = f"./{file_name}"
+     df = pd.DataFrame(df)
+     file_name = "clean_data.csv"
+     file_path = f"./{file_name}"
 
-  df.to_csv(file_path)
+     df.to_csv(file_path)
 
-  df = open(file_path, 'rb')
-  st.download_button(label='Click to download',
+     df = open(file_path, 'rb')
+     st.download_button(label='Click to download',
                       data=df,
                       file_name=file_name,
                       key='download_df')
-  df.close()
+     df.close()
 except:
   pass
+
