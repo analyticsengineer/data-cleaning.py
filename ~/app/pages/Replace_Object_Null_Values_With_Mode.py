@@ -50,27 +50,22 @@ try:
    if st.button('Clean Data'):
     for column in df_file.columns:
         df_file[column].fillna(df_file[column].mode().iloc[0], inplace=True)
-        st.write(df_file)
-       
-      
-    if st.button('Clean Data'):
-         st.write(df)
+    st.write(df_file)
 
-    df1 = df.isnull().sum()
-    if st.button('View Null Value'):
-           st.write(df1)
+if st.button('View Null Values'):
+    df1 = df_file.isnull().sum()
+    st.write(df1)
 
-    df = pd.DataFrame(df)
     file_name = "clean_data.csv"
     file_path = f"./{file_name}"
 
-    df.to_csv(file_path)
-    
-    df = open(file_path, 'rb')
-    st.download_button(label='Click to download',
-                    data=df,
-                    file_name=file_name,
-                    key='download_df')
+    df_file.to_csv(file_path)
+
+    with open(file_path, 'rb') as file:
+        st.download_button(label='Click to download',
+                           data=file,
+                           file_name=file_name,
+                           key='download_df')
     df.close()
 except:
   pass
