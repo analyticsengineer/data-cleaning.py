@@ -47,10 +47,9 @@ except:
   pass
 
 try:
-   col_mode = st.multiselect("Choose Column:", options=df_file.columns)
    if st.button('Clean Data'):
-    for column in col_mode:
-        df_file[column].fillna(df_file[column].mode()[0], inplace=True)
+    for column in df_file.columns:
+        df_file[column].fillna(df_file[column].mode().iloc[0], inplace=True)
         st.write(df_file)
        
         #for column in df.columns:
