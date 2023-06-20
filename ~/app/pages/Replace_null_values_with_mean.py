@@ -39,10 +39,17 @@ except:
   pass
 
 try:
-   col_mean = st.multiselect("Choose Column:", options=df_file.columns)
+  df = df_file.isnull().sum()
+  if st.button('View Missing Values'):
+     st.write(df)
+
+except:
+  pass
+
+try:
    if st.button('Clean Data'):
-    col_mean_fillna = df_file[col_mean].fillna(df_file[col_mean].mean().round(0))
-    st.write(col_mean_fillna)
+    df_file = df_file.fillna(df_file.mean().round(0))
+    st.write(df_file)
    
 
     df1 = df.isnull().sum()
