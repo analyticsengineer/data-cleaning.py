@@ -47,10 +47,10 @@ except:
   pass
 
 try:
-   col_mean = st.multiselect("Choose Column:",options=df_file.columns)
-   colmean = df_file.fillna(df_file.median().round(0))
+   col_median = st.multiselect("Choose Column:",options=df_file.columns)
+   colmedian = df_file.fillna(col_median.median().round(0))
    if st.button('Clean Data'):
-     st.write(colmean)
+     st.write(colmedian)
 
    df1 = df.isnull().sum()
    if st.button('View Null Value'):
