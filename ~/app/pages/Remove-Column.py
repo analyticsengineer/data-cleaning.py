@@ -1,60 +1,57 @@
 import streamlit as st
 import pandas as pd
-from openpyxl import load_workbook
-import datetime
 import time
-from PIL import Image 
+from PIL import Image
 
+# UI layout
 col1, col2 = st.columns(2)
 image = Image.open('gif.gif')
 
-
 col1.header("Split Your Data Into Columns")
-col1.write("This makes your data looks organized")
+col1.write("This makes your data look organized.")
 col2.image(image)
 
+# File uploader
+uploaded_file = st.file_uploader("Upload your file:", type=['csv', 'xlsx', 'pickle'])
 
-df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
-try:
-  df_file = pd.read_csv(df_file)
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  st.write("Upload A CSV, EXCEL OR PICKLE FILE")
+df = None
 
-# Open Excel File
-try:
-  df_file = pd.read_excel(df_file, engine='openpyxl')
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  pass
+# Load data only once
+if uploaded_file:
+    file_type = uploaded_file.name.split('.')[-1].lower()
+    try:
+        if file_type == 'csv':
+            df = pd.read_csv(uploaded_file)
+        elif file_type == 'xlsx':
+            df = pd.read_excel(uploaded_file, engine='openpyxl')
+        elif file_type == 'pickle':
+            df = pd.read_pickle(uploaded_file)
+        else:
+            st.error("Unsupported file type.")
+    except Exception as e:
+        st.error(f"Error loading file: {e}")
 
-# Read Pickle File
-try:
-  df_file = pd.read_pickle(df_file)
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  pass
+# If data is loaded
+if df is not None:
+    st.markdown("### Your Data:")
+    st.dataframe(df)
 
-try:
-   col_del = st.multiselect("Choose Column:",options=df_file.columns)
-   coldel = df_file.drop(columns=col_del, axis=1, inplace=True)
-   if st.button('New Data'):
-     st.write(df_file)
-   
-     coldel = pd.DataFrame(df_file)
-     file_name = "clean_data.csv"
-     file_path = f"./{file_name}"
+    # Select columns to drop
+    columns_to_drop = st.multiselect("Choose columns to drop:", options=df.columns)
 
-     df_file.to_csv(file_path)
+    if st.button('Generate New Data'):
+        cleaned_df = df.drop(columns=columns_to_drop)
 
-     df_file= open(file_path, 'rb')
-     st.download_button(label='Click to download',
-                      data=df_file,
-                      file_name=file_name,
-                      key='download_df_clean')
-     df_file.close()
-except:
-  pass
+        st.markdown("### Cleaned Data:")
+        st.dataframe(cleaned_df)
+
+        # Convert to CSV and enable download
+        csv_data = cleaned_df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="📥 Download Cleaned CSV",
+            data=csv_data,
+            file_name="clean_data.csv",
+            mime='text/csv'
+        )
+else:
+    st.info("Please upload a CSV, Excel, or Pickle file to begin.")
