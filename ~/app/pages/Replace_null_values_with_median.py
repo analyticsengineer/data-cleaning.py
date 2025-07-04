@@ -1,79 +1,69 @@
 import streamlit as st
 import pandas as pd
-from openpyxl import load_workbook
-import datetime
-import time
-from PIL import Image 
+import numpy as np
+from PIL import Image
 
+# Layout
 col1, col2 = st.columns(2)
-
 image = Image.open('gif.gif')
 
-col1.header("Replace the null values")
-col1.write("These Reduces The Number Of Outliers In Your Data")
+col1.header("Replace Null Values with Column Median")
+col1.write("This reduces the number of outliers in your data.")
 col2.image(image)
 
+# File uploader
+uploaded_file = st.file_uploader("Upload your file:", type=['csv', 'xlsx', 'pickle'])
+df = None
 
-df_file = st.file_uploader("Upload your file: ", type=['csv', 'xlsx', 'pickle'])
-try:
-  df_file = pd.read_csv(df_file)
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  st.write("Upload A CSV, EXCEL OR PICKLE FILE")
+# Read the uploaded file once
+if uploaded_file:
+    ext = uploaded_file.name.split('.')[-1].lower()
+    try:
+        if ext == 'csv':
+            df = pd.read_csv(uploaded_file)
+        elif ext == 'xlsx':
+            df = pd.read_excel(uploaded_file, engine='openpyxl')
+        elif ext == 'pickle':
+            df = pd.read_pickle(uploaded_file)
+        else:
+            st.error("Unsupported file type.")
+    except Exception as e:
+        st.error(f"Error loading file: {e}")
 
-# Open Excel File
-try:
-  df_file = pd.read_excel(df_file, engine='openpyxl')
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  pass
+# Main logic
+if df is not None:
+    st.markdown("### Your Data:")
+    st.dataframe(df)
 
-# Read Pickle File
-try:
-  df_file = pd.read_pickle(df_file)
-  st.markdown("Your Data Record: ")
-  st.dataframe(df_file)
-except:
-  pass
+    # Show missing values
+    if st.button('View Missing Values'):
+        st.markdown("### Missing Values by Column:")
+        st.write(df.isnull().sum())
 
-try:
-  df = df_file.isnull().sum()
-  if st.button('View Missing Values'):
-     st.write(df)
+    # Clean nulls with median
+    if st.button('Clean Data'):
+        numeric_cols = df.select_dtypes(include=[np.number]).columns
+        df[numeric_cols] = df[numeric_cols].apply(lambda col: col.fillna(col.median().round(0)))
 
-except:
-  pass
+        st.success("Missing values in numeric columns replaced with median.")
+        st.markdown("### Cleaned Data:")
+        st.dataframe(df)
 
-try:
-  df = df_file.isnull().sum()
-  if st.button('View Missing Values'):
-     st.write(df)
+        # Show remaining missing values
+        remaining_nulls = df.isnull().sum()
+        if remaining_nulls.sum() == 0:
+            st.info("No more missing values.")
+        else:
+            st.warning("Some missing values still remain.")
+            st.write(remaining_nulls)
 
-except:
-  pass
-
-try:
-   if st.button('Clean Data'):
-    df_file.fillna(df_file.median().round(0), inplace=True)
-    st.write(df_file)
-     
-    df1 = df.isnull().sum()
-    if st.button('View Null Value'):
-     st.write(df1)
-
-     df = pd.DataFrame(df)
-     file_name = "clean_data.csv"
-     file_path = f"./{file_name}"
-
-     df.to_csv(file_path)
-
-     df = open(file_path, 'rb')
-     st.download_button(label='Click to download',
-                      data=df,
-                      file_name=file_name,
-                      key='download_df')
-     df.close()
-except:
-  pass
+        # Download cleaned file
+        csv = df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label='📥 Download Cleaned Data',
+            data=csv,
+            file_name="clean_data.csv",
+            mime='text/csv'
+        )
+else:
+    st.info("Please upload a CSV, Excel, or Pickle file to begin.")
